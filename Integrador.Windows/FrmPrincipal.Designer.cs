@@ -49,6 +49,7 @@ namespace Integrador.Windows
             this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SalirToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.colIsbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreLibro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEditorial = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +90,7 @@ namespace Integrador.Windows
             this.DatosDataGridView.AllowUserToResizeRows = false;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIsbn,
             this.colNombreLibro,
             this.colAutor,
             this.colEditorial,
@@ -149,6 +151,7 @@ namespace Integrador.Windows
             this.NuevoToolStripButton.Size = new System.Drawing.Size(46, 55);
             this.NuevoToolStripButton.Text = "Nuevo";
             this.NuevoToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.NuevoToolStripButton.Click += new System.EventHandler(this.NuevoToolStripButton_Click);
             // 
             // BorrarToolStripButton
             // 
@@ -266,6 +269,14 @@ namespace Integrador.Windows
             this.SalirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.SalirToolStripButton.Click += new System.EventHandler(this.SalirToolStripButton_Click);
             // 
+            // colIsbn
+            // 
+            this.colIsbn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colIsbn.HeaderText = "ISBN";
+            this.colIsbn.Name = "colIsbn";
+            this.colIsbn.ReadOnly = true;
+            this.colIsbn.Width = 57;
+            // 
             // colNombreLibro
             // 
             this.colNombreLibro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -348,6 +359,7 @@ namespace Integrador.Windows
         private System.Windows.Forms.ToolStripButton ActualizarToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton SalirToolStripButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIsbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreLibro;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEditorial;

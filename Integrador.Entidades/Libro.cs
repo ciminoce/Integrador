@@ -51,6 +51,7 @@ namespace Integrador.Entidades
         {
             if (string.IsNullOrEmpty(ISBN.Trim())) return false;
             if (string.IsNullOrEmpty(Autor.Trim())) return false;
+            if (string.IsNullOrEmpty(NombreLibro.Trim())) return false;
             if (Paginas <= 0) return false;
             return true;
         }

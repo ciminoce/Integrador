@@ -59,6 +59,7 @@ namespace Integrador.Windows
 
         private void SetearFila(DataGridViewRow r, Libro libro)
         {
+            r.Cells[colIsbn.Index].Value = libro.ISBN;
             r.Cells[colNombreLibro.Index].Value = libro.NombreLibro;
             r.Cells[colAutor.Index].Value = libro.Autor;
             r.Cells[colEditorial.Index].Value = libro.Editorial;
@@ -88,28 +89,32 @@ namespace Integrador.Windows
         private void NuevoToolStripButton_Click(object sender, EventArgs e)
         {
             ////capturar los datos
-            //FrmLibrosAE frm = new FrmLibrosAE() { Text = "Agregar Libro" };
-            //DialogResult dr = frm.ShowDialog(this);
-            ////ver si ya no existe
-            //if (dr == DialogResult.Cancel)
-            //{
-            //    return;
-            //}
+            FrmLibrosAE frm = new FrmLibrosAE() { Text = "Agregar Libro" };
+            DialogResult dr = frm.ShowDialog(this);
 
-            //Libro libro = frm.GetLibro();
-            //if (RepositorioDeLibros.GetInstancia().Existe(libro))
-            //{
-            //    MessageBox.Show("Libro existente!!!", "ERROR",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error);
-            //    return;
-            //}
-            ////si no existe la guardo
-            //RepositorioDeLibros.GetInstancia().Agregar(libro);
-            //DataGridViewRow r = ConstruirFila();
-            //SetearFila(r, libro);
-            //AgregarFila(r);
-            //MostrarCantidadRegistros();
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+            //ver si ya no existe
+            Libro libro = frm.GetLibro();
+
+            if (!RepositorioDeLibros.GetInstancia().Existe(libro))
+            {
+                    RepositorioDeLibros.GetInstancia().Agregar(libro);
+                    DataGridViewRow r = ConstruirFila();
+                    SetearFila(r, libro);
+                    AgregarFila(r);
+                    MostrarCantidadRegistros();
+
+            }
+            else
+            {
+                MessageBox.Show("Libro existente!!!", "ERROR",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+            }
 
         }
 

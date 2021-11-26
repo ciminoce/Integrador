@@ -29,12 +29,13 @@ namespace Integrador.Windows
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CancelarButton = new System.Windows.Forms.Button();
             this.OkButton = new System.Windows.Forms.Button();
             this.TemaComboBox = new System.Windows.Forms.ComboBox();
             this.EditorialComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.RadioNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PaginasNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,7 +44,9 @@ namespace Integrador.Windows
             this.NombreLibroTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.AutorTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.RadioNumericUpDown)).BeginInit();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.PaginasNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // CancelarButton
@@ -56,6 +59,7 @@ namespace Integrador.Windows
             this.CancelarButton.Text = "Cancelar";
             this.CancelarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CancelarButton.UseVisualStyleBackColor = true;
+            this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
             // OkButton
             // 
@@ -67,6 +71,7 @@ namespace Integrador.Windows
             this.OkButton.Text = "OK";
             this.OkButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // TemaComboBox
             // 
@@ -95,23 +100,23 @@ namespace Integrador.Windows
             this.label3.TabIndex = 4;
             this.label3.Text = "Tema:";
             // 
-            // RadioNumericUpDown
+            // PaginasNumericUpDown
             // 
-            this.RadioNumericUpDown.Location = new System.Drawing.Point(149, 153);
-            this.RadioNumericUpDown.Maximum = new decimal(new int[] {
+            this.PaginasNumericUpDown.Location = new System.Drawing.Point(149, 153);
+            this.PaginasNumericUpDown.Maximum = new decimal(new int[] {
             2000,
             0,
             0,
             0});
-            this.RadioNumericUpDown.Minimum = new decimal(new int[] {
+            this.PaginasNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.RadioNumericUpDown.Name = "RadioNumericUpDown";
-            this.RadioNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.RadioNumericUpDown.TabIndex = 5;
-            this.RadioNumericUpDown.Value = new decimal(new int[] {
+            this.PaginasNumericUpDown.Name = "PaginasNumericUpDown";
+            this.PaginasNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.PaginasNumericUpDown.TabIndex = 5;
+            this.PaginasNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -186,6 +191,10 @@ namespace Integrador.Windows
             this.AutorTextBox.Size = new System.Drawing.Size(464, 20);
             this.AutorTextBox.TabIndex = 2;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FrmLibrosAE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,14 +212,15 @@ namespace Integrador.Windows
             this.Controls.Add(this.TemaComboBox);
             this.Controls.Add(this.EditorialComboBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.RadioNumericUpDown);
+            this.Controls.Add(this.PaginasNumericUpDown);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximumSize = new System.Drawing.Size(682, 327);
             this.MinimumSize = new System.Drawing.Size(682, 327);
             this.Name = "FrmLibrosAE";
             this.Text = "FrmLibrosAE";
-            ((System.ComponentModel.ISupportInitialize)(this.RadioNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaginasNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +233,7 @@ namespace Integrador.Windows
         private System.Windows.Forms.ComboBox TemaComboBox;
         private System.Windows.Forms.ComboBox EditorialComboBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown RadioNumericUpDown;
+        private System.Windows.Forms.NumericUpDown PaginasNumericUpDown;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
@@ -232,5 +242,6 @@ namespace Integrador.Windows
         private System.Windows.Forms.TextBox NombreLibroTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox AutorTextBox;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
